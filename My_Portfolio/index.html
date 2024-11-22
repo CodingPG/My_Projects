@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/c9c6485873.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+        <div id="container">
+            <nav>
+                <img src="Logo2.jpg" class="logo">
+                <ul>
+                    <li> <a href="#header">Home</a></li>
+                    <li> <a href="#about">About me</a></li>                    
+                    <li> <a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-text">
+                <marquee scrollamount="10"><p>Web Developer</p>
+                <h1>Hello, Myself <span>Pratham</span> <br> I am From India</h1></marquee>
+            </div>
+        </div>
+    </div>
+    <!---------------about------------->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <h1 class="subtitle">About Me</h1>
+                    <p>Education in Information Technology</p>
+                    <p>I am a dedicated and motivated B.Sc.IT student with a passion for technology and a strong foundation in Computer Science and Information Technology. I have acquired useful knowledge and practical expertise in a variety of IT disciplines during my academic career. Along with my technical capabilities, I have a strong analytical mentality and good problem-solving skills. I am skilled at seeing problems, examining needs, and putting up workable solutions.</p>
+                <div class="tab-titles">
+                    <p class="tab-links active-links" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+                <div class="tab-contents active-tabs" id="skills">
+                    <ul>
+                        <li><span>HTML</span><br>I am Good in structuring web pages</li>
+                        <li><span>CSS</span><br>Styling those web pages</li>
+                        <li><span>JavaScript</span><br>Making the web pages Responsive</li>
+                        <li><span>Java</span><br>Good at building web applications</li>
+                        <li><span>Python</span><br>Good at Analyzing Data</li>
+                        <li><span>SQL</span><br>I am aware of storing and processing database</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>SSC</span><br>(2017-2018)<br>79.20%<br>Salvation High School</li>
+                        <li><span>HSC</span><br>(2018-2020)<br>81.69%<br>Kirti College</li>
+                        <li><span>Bachelors</span><br>(2020-2023)<br>7.28 CGPA<br>D.G. Ruparel College(Mumbai University)</li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                <h1 class="sub-title"> Contact Me </h1>
+                <p> <i class="fa-solid fa-paper-plane"> </i>prathamdukhande@gmail.com </p>
+                <p> <i class="fa-solid fa-phone"> </i>9969735487 </p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/pratham.dukhande?mibextid=ZbWKwL"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/pr_x_th_x_m?igsh=Znl3NmVkcDduNXFw"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/pratham-dukhande-308599296/"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/CodingPG"><i class="fa-brands fa-github"></i></a>
+                </div>
+                <a href="PRATHAM DUKHANDE (3).pdf" download class="btn btn2">Download Resume</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message" ></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form> 
+                <span id="msg"></span>
+            </div>
+        </div>
+        <div class="copyright">
+            <p> Copyright © Pratham. Made with my whole <i class="fa-solid fa-heart"></i> by me.</p>
+        </div>
+    </div>
+    
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-links")
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tabs")
+            }
+            event.currentTarget.classList.add("active-links")
+            document.getElementById(tabname).classList.add("active-tabs")
+        }
+    </script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxqlBvXTcgla3QpNSzyqHzn2BbvTy_lfrXA8vQuA1HRwXcl31yv7ZaPq4jFJ9gdAHs8/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Thank you for your response !!!"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },2000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
