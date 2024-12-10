@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Rules</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #153677, #4e085f);
+            height: 100vh;
+        }
+        .rules-container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .start-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .start-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="rules-container">
+        <h1>Quiz Rules</h1>
+        <ol>
+            <li>Read each question carefully.</li>
+            <li>No cheating. As the questions are very easy you can do it on your own.</li>
+            <li>Once clicked you cannot re-select the answer.</li>
+            <li>You cannot go back to previous questions.</li>
+            <li>Have fun!</li>
+            <li>Score best to win!</li>
+        </ol>
+        <button class="start-btn" onclick="startQuiz()">Start Quiz</button>
+    </div>
+    <script>
+        function startQuiz() {
+            window.location.href = "quiz.html"; 
+        }
+    </script>
+</body>
+</html>
